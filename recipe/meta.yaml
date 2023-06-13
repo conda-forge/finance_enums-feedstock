@@ -1,5 +1,5 @@
 {% set name = "finance_enums" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5cb9969bca122a1a05d36be8a3d823078170ff6662dd677e1b907f67faac50bb
+  sha256: 4baf47ea60daa325d46973f9ddaf509a3c39883e7b1ed9dd1403a301f5176aa5
 
 build:
   number: 0
@@ -37,9 +37,9 @@ outputs:
       imports:
         - finance_enums
       commands:
-         - pip check
+        - pip check
       requires:
-         - pip
+        - pip
 
   - name: finance-enums
     build:
