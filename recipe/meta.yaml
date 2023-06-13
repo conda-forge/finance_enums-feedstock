@@ -29,9 +29,9 @@ outputs:
       host:
         - python
         - pip
+        - maturin >=1,<2
       run:
         - python
-        - pandas >=0.22
 
     test:
       imports:
