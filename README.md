@@ -1,11 +1,11 @@
-About finance_enums
-===================
+About finance_enums-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/finance_enums-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/timkpaine/finance_enums
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/finance_enums-feedstock/blob/main/LICENSE.txt)
 
 Summary: Standard Financial Enumerations
 
