@@ -1,5 +1,5 @@
 {% set name = "finance_enums" %}
-{% set version = "0.2.1" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4baf47ea60daa325d46973f9ddaf509a3c39883e7b1ed9dd1403a301f5176aa5
+  sha256: 501ca8382ba7a147ef6644dbf22882093f71ac524bc93a4b0420d82b16d22e94
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
