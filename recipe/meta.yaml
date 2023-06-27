@@ -25,11 +25,18 @@ outputs:
       build:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        - {{ compiler('rust') }}
+        - pybind11                               # [build_platform != target_platform]
+        - {{ compiler('cxx') }}
+        - cmake
+        - make  # [unix]
+        - ninja
+        - scikit-build
       host:
         - python
         - pip
-        - maturin >=1,<2
+        - numpy
+        - pybind11
+        - scikit-build
       run:
         - python
 
