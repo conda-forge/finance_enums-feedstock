@@ -1,0 +1,25 @@
+From d2b058ae82f9148336a8ddabe06efc16ac4d93cc Mon Sep 17 00:00:00 2001
+From: Tim Paine <3105306+timkpaine@users.noreply.github.com>
+Date: Tue, 27 Jun 2023 16:30:46 -0400
+Subject: [PATCH] Fixes for conda build
+
+---
+ setup.py | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 1616abc..5c23925 100644
+--- a/setup.py
++++ b/setup.py
+@@ -7,9 +7,6 @@ python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+ cmake_args = [f"-DPYTHON_VERSION={python_version}"]
+
+
+-if "CMAKE_ARGS" in os.environ:
+-    cmake_args.extend(os.environ["CMAKE_ARGS"].split(" "))
+-
+ if "STATIC_PYTHON" in os.environ:
+     cmake_args.append("-DSTATIC_PYTHON=On")
+
+--
+2.40.0
