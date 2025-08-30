@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f95a947bd66e07375c2e27d845f4803734705b7205c343edcf3d3fc0c96c7845
   patches:
     - patches/0001-Fixes-for-conda-build.patch
 
 build:
-  number: 3
+  number: 4
   script:
     - set CMAKE_GENERATOR=Visual Studio 17 2022  # [win]
     - {{ PYTHON }} -m pip install . -vv
