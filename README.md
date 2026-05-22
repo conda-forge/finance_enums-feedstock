@@ -264,5 +264,4 @@ Feedstock Maintainers
 =====================
 
 * [@pgc-dev](https://github.com/pgc-dev/)
-* [@timkpaine](https://github.com/timkpaine/)
 
