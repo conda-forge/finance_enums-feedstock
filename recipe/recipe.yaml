@@ -2,7 +2,7 @@ context:
   name: finance_enums
   version: "0.4.0"
 
-package:
+recipe:
   name: ${{ name|lower }}
   version: ${{ version }}
 
@@ -57,17 +57,17 @@ outputs:
           pip_check: true
           python_version: ${{ python_min }}.*
 
-    - package:
-        name: finance-enums
-      requirements:
-        run:
-          - ${{ pin_subpackage('finance_enums', upper_bound='x.x.x', lower_bound='x.x.x') }}
-      tests:
-        - python:
-            imports:
-              - finance_enums
-            pip_check: true
-            python_version: ${{ python_min }}.*
+  - package:
+      name: finance-enums
+    requirements:
+      run:
+        - ${{ pin_subpackage('finance_enums', upper_bound='x.x.x', lower_bound='x.x.x') }}
+    tests:
+      - python:
+          imports:
+            - finance_enums
+          pip_check: true
+          python_version: ${{ python_min }}.*
 
 about:
   license: Apache-2.0
