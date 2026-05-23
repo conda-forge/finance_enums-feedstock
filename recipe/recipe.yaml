@@ -12,7 +12,7 @@ source:
 
 outputs:
   - package:
-    name: finance_enums
+      name: finance_enums
     build:
       number: 0
       python:
@@ -49,12 +49,13 @@ outputs:
       ignore_run_exports:
         from_package:
           - cross-python_${{ target_platform }}
-      tests:
-        - python:
-            imports:
-              - finance_enums
-            pip_check: true
-            python_version: ${{ python_min }}.*
+
+    tests:
+      - python:
+          imports:
+            - finance_enums
+          pip_check: true
+          python_version: ${{ python_min }}.*
 
     - package:
         name: finance-enums
