@@ -1,6 +1,7 @@
 context:
   name: finance_enums
   version: "0.4.0"
+  build: 0
 
 recipe:
   name: ${{ name|lower }}
@@ -10,11 +11,14 @@ source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
   sha256: 73e47579d9db8f982b840c36a74f359755f2caaca0f60800c0c085929f589d6d
 
+build:
+  number: ${{ build }}
+
 outputs:
   - package:
       name: finance_enums
     build:
-      number: 0
+      number: ${{ build }}
       python:
         version_independent: true
       script:
@@ -59,9 +63,16 @@ outputs:
 
   - package:
       name: finance-enums
+    build:
+      noarch: generic
+      number: ${{ build }}
+      skip:
+        - not target_platform == "linux-64"
     requirements:
       run:
         - ${{ pin_subpackage('finance_enums', upper_bound='x.x.x', lower_bound='x.x.x') }}
+    about:
+      license_file: []
     tests:
       - python:
           imports:
