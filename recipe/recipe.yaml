@@ -1,6 +1,6 @@
 context:
   name: finance_enums
-  version: "0.4.0"
+  version: "0.4.1"
   build: 0
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 73e47579d9db8f982b840c36a74f359755f2caaca0f60800c0c085929f589d6d
+  sha256: ed48bb3cd7b8a157e7aafa2d6beedd847a8d1f09a1ef5871209cf4066da2000f
 
 build:
   number: ${{ build }}
@@ -28,7 +28,7 @@ outputs:
         - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
         - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
       skip: is_abi3 and not is_python_min
-    
+
     requirements:
       build:
         - if: build_platform != target_platform
@@ -47,7 +47,7 @@ outputs:
         - hatch-rs >=0.2.0
         - if: is_abi3
           then:
-          - python-abi3
+            - python-abi3
       run:
         - python >=${{ python_min }}
       ignore_run_exports:
