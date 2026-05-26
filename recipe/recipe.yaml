@@ -1,6 +1,6 @@
 context:
   name: finance_enums
-  version: "0.4.1"
+  version: "0.5.1"
   build: 0
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: ed48bb3cd7b8a157e7aafa2d6beedd847a8d1f09a1ef5871209cf4066da2000f
+  sha256: ff5af6b04d8bb21d0fda8ae4e2753b8b7eb2ac87d8650b4a8fd27c903254a102
 
 build:
   number: ${{ build }}
