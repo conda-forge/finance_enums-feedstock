@@ -1,6 +1,6 @@
 context:
   name: finance_enums
-  version: "0.6.0"
+  version: "0.7.0"
   build: 0
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: a819bd197a82e3037d5672f370cf849af1468fa2bca94c6bd3a427e98ab74956
+  sha256: 9748e6df1b9f00527dd1fb63b80bb4d924278719fa7ee95eae83b4780c438f6e
 
 build:
   number: ${{ build }}
@@ -50,16 +50,22 @@ outputs:
             - python-abi3
       run:
         - python >=${{ python_min }}
-      ignore_run_exports:
-        from_package:
-          - cross-python_${{ target_platform }}
 
     tests:
       - python:
           imports:
             - finance_enums
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version: 
+            - ${{ python_min }}.*
+            - "*"
+      - requirements:
+          run:
+            - abi3audit
+        script:
+          - if: unix
+            then: abi3audit $SP_DIR/finance_enums/_finance_enums.abi3.so -s -v --assume-minimum-abi3 ${{ python_min }}
+            else: abi3audit %SP_DIR%/finance_enums/_finance_enums.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
 
   - package:
       name: finance-enums
@@ -78,7 +84,16 @@ outputs:
           imports:
             - finance_enums
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version: 
+            - ${{ python_min }}.*
+            - "*"
+      - requirements:
+          run:
+            - abi3audit
+        script:
+          - if: unix
+            then: abi3audit $SP_DIR/finance_enums/_finance_enums.abi3.so -s -v --assume-minimum-abi3 ${{ python_min }}
+            else: abi3audit %SP_DIR%/finance_enums/_finance_enums.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
 
 about:
   license: Apache-2.0
