@@ -92,8 +92,8 @@ outputs:
             - abi3audit
         script:
           - if: unix
-            then: abi3audit $SP_DIR/finance_enums/finance_enums.abi3.so -s -v --assume-minimum-abi3 ${{ python_min }}
-            else: abi3audit %SP_DIR%/finance_enums/finance_enums.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
+            then: abi3audit $SP_DIR/finance_enums/_finance_enums.abi3.so -s -v --assume-minimum-abi3 ${{ python_min }}
+            else: abi3audit %SP_DIR%/finance_enums/_finance_enums.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
 
 about:
   license: Apache-2.0
