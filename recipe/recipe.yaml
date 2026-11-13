@@ -1,6 +1,6 @@
 context:
   name: finance_enums
-  version: "0.7.0"
+  version: "0.7.1"
   build: 0
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 9748e6df1b9f00527dd1fb63b80bb4d924278719fa7ee95eae83b4780c438f6e
+  sha256: a2d4e619135af6fb20e36bc280ce88bc20cf2c1a85071b294842130e6bbe0359
 
 build:
   number: ${{ build }}
@@ -56,7 +56,7 @@ outputs:
           imports:
             - finance_enums
           pip_check: true
-          python_version: 
+          python_version:
             - ${{ python_min }}.*
             - "*"
       - requirements:
@@ -84,7 +84,7 @@ outputs:
           imports:
             - finance_enums
           pip_check: true
-          python_version: 
+          python_version:
             - ${{ python_min }}.*
             - "*"
       - requirements:
